@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from posts.views import postdata
+from posts.views import post_item
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,6 +25,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/',postdata,name='posts'),
+    path('postitem/', post_item, name='postitems'),
+   
    
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

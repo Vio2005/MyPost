@@ -13,12 +13,12 @@
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
-     gap: 40px; 
+     gap: 30px; 
      padding-top:150px;
  }
  
  .post-table {
-     width: 300px;
+     
      
      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
      background-color: white;
@@ -32,38 +32,39 @@
  }
  
  td {
-     width: 300px;
-   height:250px;
+     width: 430px;
+   height:370px;
      vertical-align: top;
      padding: 10px;
      line-height: 1.4;
  }
  
  .title {
-     font-size: 24px;
+     font-size: 32px;
      margin: 0;
      padding-left:10px;
  }
  
  .body {
-     font-size: 14px;
+     font-size: 20px;
      padding-left:10px;
      padding-right:10px;
      text-align: justify;
+     line-height: 30px;
  }
  
  body {
     background-color: rgb(206, 206, 206);
     
      margin: 0;
-     font-family: Trebuchet MS;
+     font-family:Trebuchet MS;
      
      
  }
  
  img {
-     width:300px;
-     height:280px;
+     width:450px;
+     height:400px;
      object-fit: cover;
      display: block;
     
@@ -75,7 +76,7 @@
  }
  
  .date{
-    font-size: 12px;
+    font-size: 15px;
     color:grey;
     padding-left:10px;
  }
@@ -99,8 +100,9 @@
     position:absolute;
     right:5%;
     top:23%;
-    
+    color:rgb(114, 114, 114);
     font-size: 30px;
+    
  }
  i:hover{
     color:rgb(69, 173, 214);
@@ -122,11 +124,11 @@
     <header>
         <nav>
             <div class="headpost"><b>My Posts</b></div>
-            <div class="link"><a href="{% url 'postitems' %}"><i class="fa-solid fa-list"></i></a></div>
+            <div class="link"><a href="{% url 'posts' %}"><i class="fa-solid fa-list"></i></a></div>
         </nav>
     </header>
     <div class="container">
-        {% for i in post_data %}
+        {% for i in post_item %}
         <table class="post-table">
             <tr>
                 <td class="image">
