@@ -5,13 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
+
+<style>
+    .container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 40px; 
+     padding-top:150px;
+ }
+ 
+ .post-table {
+     width: 300px;
+     
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+     background-color: white;
+     border-collapse: collapse;
+     margin-bottom: 20px;
+     table-layout: fixed;
+     
+    
+    
+ 
+ }
+ 
+ td {
+     width: 300px;
+   height:250px;
+     vertical-align: top;
+     padding: 10px;
+     line-height: 1.4;
+ }
+ 
+ .title {
+     font-size: 24px;
+     margin: 0;
+     padding-left:10px;
+ }
+ 
+ .body {
+     font-size: 14px;
+     padding-left:10px;
+     padding-right:10px;
+     text-align: justify;
+ }
+ 
+ body {
+    background-color: rgb(206, 206, 206);
+    
+     margin: 0;
+     font-family: sans-serif;
+     
+     
+ }
+ 
+ img {
+     width:300px;
+     height:280px;
+     object-fit: cover;
+     display: block;
+    
+    
+ }
+ .image{
+     padding:0;
+    
+ }
+ 
+ .date{
+    font-size: 12px;
+    color:grey;
+    padding-left:10px;
+ }
+ nav{
+    background-color: rgb(248, 246, 246);
+    padding:22px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    position: fixed;
+    width:100%;
+
+ }
+ .headpost{
+    font-size: 25px;
+ }
+ .postbt{
+    margin-top:0px;
+ }
+ 
+
+ </style>
+ 
+        
 </head>
+
 <body>
-    {% for i in post_data %} 
-    <a href="{% url 'detail' i.id %}">{{i.title}}</a>
-   <p> {{i.post_body}}</p>
-  
-   <hr>
-{% endfor %}
+
+    <header>
+        <nav>
+            <div class="headpost"><b>My Posts</b></div>
+        </nav>
+    </header>
+    <div class="container">
+        {% for i in post_data %}
+        <table class="post-table">
+            <tr>
+                <td class="image">
+                   
+                    <img src="{{ i.photo.url }}" alt="Post image">
+                </td>
+            
+                <td class="postbt">
+                    <h2 class="title">{{ i.title }}</h2>
+                    <p class="date">Posted in {{i.date | timesince}} ago</p>
+                    
+                        <p class="body">{{ i.post_body }}</p>
+                    
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+    
+
 </body>
 </html>
