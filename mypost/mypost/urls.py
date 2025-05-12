@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from posts.views import postdata
 from posts.views import post_item
+from posts.views import *
+
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,6 +28,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/',postdata,name='posts'),
     path('postitem/', post_item, name='postitems'),
+    path('create/', createpost, name='createpost'),
+    path('createform/', createform, name='createform'),
    
    
 ]
