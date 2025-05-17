@@ -30,6 +30,7 @@ urlpatterns = [
     path('postitem/', post_item, name='postitems'),
     path('create/', createpost, name='createpost'),
     path('createform/', createform, name='createform'),
+    path('postdetail/<int:id>/', postdetail, name='postdetail'),
    
    
 ]

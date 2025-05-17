@@ -43,3 +43,9 @@ def createform(request):
            
             return HttpResponse('Error')
     return render(request,'createpost.html',{'fm':fm})
+
+def postdetail(request,id):
+    data=Post.objects.filter(id=id)
+    
+    context={"data":data}
+    return render(request,'postdetails.html',context)

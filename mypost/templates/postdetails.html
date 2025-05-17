@@ -1,19 +1,51 @@
+
+{% load static %}
 <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <style>
+            img{
+                width:320px;
+                height:280px;
+            }
+        </style>
     </head>
     <body>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand">Navbar</a>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
         {% for i in data %}
-        <h1>Details....{{i.title}}</h1>
-        <p>{{i.date | timesince}}</p>
-        <img src="{{i.photo.url}}" width="100px" height="100px">
+        <div class="card text-center">
+            <div class="card-header">
+              Detail
+            </div>
+            <div class="card-body">
+                <img src="{{i.photo.url}}">
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">{{i.post_body}}</p>
+              <p></p>
+              <a href="{% url 'posts' %}" class="btn btn-primary">Go back</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+                {{i.date | timesince}} ago
+            </div>
+          </div>
+        
         {% endfor %}
 
-        {{getdata.date}}
+       
         
     </body>
 
     </html>
+    
